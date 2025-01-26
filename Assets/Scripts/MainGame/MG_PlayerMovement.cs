@@ -12,19 +12,19 @@ public class MG_PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     private bool isGrounded;
 
+    private Animator anim;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
         rb.freezeRotation = true; // Prevent unwanted rotation
     }
 
     void Update()
     {
-
         // Handle movement
         MovePlayer();
-
     }
 
     void MovePlayer()
@@ -55,6 +55,11 @@ public class MG_PlayerMovement : MonoBehaviour
 
             // Move the player
             rb.MovePosition(transform.position + moveDirection * moveSpeed * Time.deltaTime);
+            anim.SetBool("isWalking", true);
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
     }
 }
