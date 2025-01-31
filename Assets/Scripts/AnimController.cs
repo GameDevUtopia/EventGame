@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class AnimController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void startAnim(Animator animator)
     {
         animator.SetTrigger("Start");
